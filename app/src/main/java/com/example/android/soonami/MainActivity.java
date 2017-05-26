@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
         /**
          * Make an HTTP request to the given URL and return a String as the response.
+         * Which is supposed to be json response.
          */
         private String makeHttpRequest(URL url) throws IOException {
             String jsonResponse = "";
