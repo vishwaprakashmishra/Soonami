@@ -167,14 +167,17 @@ public class MainActivity extends AppCompatActivity {
                 urlConnection.setConnectTimeout(15000 /* milliseconds */);
                 urlConnection.connect();
                 // getting the response code
-                int responseConde  = urlConnection.getResponseCode();
+                int responseConde = urlConnection.getResponseCode();
                 if ( responseConde == 200 ) {
                     inputStream = urlConnection.getInputStream();
                     jsonResponse = readFromStream(inputStream);
+                }else {
+                    Log.i("makeHTTPRequest", "" + responseConde);
                 }
 
             } catch (IOException e) {
-                // TODO: Handle the exception
+                e.printStackTrace();
+                Log.e("makeHttpRequest", "Is error StackTrace of IOException in ");
             } finally {
                 if (urlConnection != null) {
                     urlConnection.disconnect();
